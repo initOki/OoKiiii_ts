@@ -17,7 +17,6 @@ export interface StoreAuthTypes {
               },
           ]
         | null;
-
     getUserInfo?: () => void;
     getUserRepository?: () => void;
 }
@@ -44,4 +43,21 @@ export interface getUserRepositoryResponseTypes {
             languages_url: string;
         },
     ];
+}
+
+export interface repositoryResponse {
+    data:
+        | [
+              {
+                  id: number;
+                  name: string;
+                  updated_at: string;
+                  pushed_at: string;
+                  html_url: string;
+                  issue_open: number;
+                  languages_url: string;
+                  homepage: string;
+              },
+          ]
+        | null;
 }

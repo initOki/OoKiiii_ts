@@ -2,7 +2,12 @@ import create, { StateCreator } from 'zustand';
 import { persist, PersistOptions } from 'zustand/middleware';
 
 // types
-import { StoreAuthTypes, getUserInfoResponseTypes, getUserRepositoryResponseTypes } from 'src/store/storeAuth.d';
+import {
+    StoreAuthTypes,
+    getUserInfoResponseTypes,
+    getUserRepositoryResponseTypes,
+    repositoryResponse,
+} from 'src/store/storeAuth.d';
 
 // api
 import { CustomAPI } from '@/pages/api/customAPI';
@@ -47,9 +52,7 @@ export const useStoreAuth = create<StoreAuthTypes>(
                     data: 'initOki',
                 };
                 try {
-                    const response: getUserRepositoryResponseTypes = await githubInstance.get(
-                        '/users/' + req.data + '/repos',
-                    );
+                    const response: repositoryResponse = await githubInstance.get('/users/' + req.data + '/repos');
                     set(() => ({
                         repository: response.data,
                     }));

@@ -6,7 +6,8 @@
     "dev": "cp .env.development .env.local && next dev",
     "build": "cp .env.production .env.local && next build",
     "start": "cp .env.development .env.local && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier --write ./src"
   },
   "dependencies": {
     "@stitches/react": "^1.2.8",
